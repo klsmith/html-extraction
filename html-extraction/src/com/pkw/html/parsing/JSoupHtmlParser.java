@@ -6,7 +6,7 @@ import org.jsoup.select.Elements;
 
 public class JSoupHtmlParser implements HtmlParser {
 
-    Document document;
+    private Document document;
 
     public static JSoupHtmlParser createFor(String html) {
         return new JSoupHtmlParser(html);

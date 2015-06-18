@@ -7,7 +7,8 @@ import org.junit.Test;
 
 public class JSoupHtmlParserTester {
 
-    public static final String HTML = "<html><body><h1>example</h1><p>Welcome to example!</p><div id=\"firstdiv\"><h2>hello world</h2><div><p>I'm Example<br/>Batman</p></div></div></body></html>";
+    public static final String HTML = "<html><body><h1>example</h1><p>Welcome to example!</p>"
+            + "<div id=\"firstdiv\"><h2>hello world</h2><div><p>I'm Example<br/>Batman</p></div></div></body></html>";
 
     private JSoupHtmlParser parser;
 
@@ -40,7 +41,8 @@ public class JSoupHtmlParserTester {
     @Test
     public void testGetFirstBodyContents() {
         final String actual = parser.getHTMLContentOfFirst("body");
-        final String expected = "<h1>example</h1><p>Welcome to example!</p><div id=\"firstdiv\"><h2>hello world</h2><div><p>I'm Example<br>Batman</p></div></div>";
+        final String expected = "<h1>example</h1><p>Welcome to example!</p><div id=\"firstdiv\">"
+                + "<h2>hello world</h2><div><p>I'm Example<br>Batman</p></div></div>";
         assertEquals(expected, actual);
     }
 
