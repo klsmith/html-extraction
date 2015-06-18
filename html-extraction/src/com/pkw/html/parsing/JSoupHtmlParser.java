@@ -19,13 +19,7 @@ public class JSoupHtmlParser implements HtmlParser {
 
     @Override
     public String getHTMLContentOfFirst(String tagName) {
-        Elements elements = document.getElementsByTag(tagName);
-        try {
-            return elements.get(0).html();
-        }
-        catch (IndexOutOfBoundsException e) {
-            return "";
-        }
+        return getHTMLContentOfNthOccurance(tagName, 1);
     }
 
     public String getHTMLContentOfNthOccurance(String tagName, int n) {
