@@ -57,4 +57,11 @@ public class JSoupHtmlParserTester {
         final String expected = "<p>I'm Example<br>Batman</p>";
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testGetSecondPContents() {
+        final String actual = parser.getHTMLContentOfNthOccurance("p", 2);
+        final String expected = "I'm Example<br>Batman";
+        assertEquals(expected, actual);
+    }
 }
