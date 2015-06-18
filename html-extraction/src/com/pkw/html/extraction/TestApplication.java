@@ -1,5 +1,6 @@
 package com.pkw.html.extraction;
 
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
@@ -19,31 +20,29 @@ public final class TestApplication {
     }
 
     public static void main(String[] args) {
-        JSoupHtmlParser parser = JSoupHtmlParser.createFor(getEbayHTML("batman", "0.25"));
+        JSoupHtmlParser parser = JSoupHtmlParser.createFor(getHTMLFromEbay("batman", "0.25"));
         System.out.println(JSoupHtmlParser.createFor(parser.getHTMLContentOfNthOccurance("ul", NTH_OCCURANCE))//
                 .getHTMLContentOfFirst("li"));
     }
 
-    private static String getEbayHTML(String searchFor, String priceCeiling) {
-        return getHTML(EBAY_URL.replace(SEARCH_FOR, searchFor).replace(PRICE_CEILING, priceCeiling));
+    private static String getHTMLFromEbay(String searchFor, String priceCeiling) {
+        return getHTMLFrom(EBAY_URL.replace(SEARCH_FOR, searchFor).replace(PRICE_CEILING, priceCeiling));
     }
 
-    public static String getHTML(String argUrl) {
+    public static String getHTMLFrom(String url) {
         String content = null;
         Scanner scanner = null;
         try {
-            URLConnection connection = new URL(argUrl).openConnection();
+            URLConnection connection = new URL(url).openConnection();
             scanner = new Scanner(connection.getInputStream());
             scanner.useDelimiter("\\Z");
             content = scanner.next();
         }
-        catch (Exception e) {
+        catch (IOException e) {
             e.printStackTrace();
         }
-        finally {
-            if (scanner != null) {
-                scanner.close();
-            }
+        if (scanner != null) {
+            scanner.close();
         }
         return content;
     }
