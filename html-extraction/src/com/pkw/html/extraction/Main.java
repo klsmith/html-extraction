@@ -1,5 +1,6 @@
 package com.pkw.html.extraction;
 
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Scanner;
@@ -33,16 +34,18 @@ public final class Main {
 
     public static String getHTML(String argUrl) {
         String content = null;
-        URLConnection connection = null;
+        Scanner scanner = null;
         try {
-            connection = new URL(argUrl).openConnection();
-            @SuppressWarnings("resource")
-            Scanner scanner = new Scanner(connection.getInputStream());
+            URLConnection connection = new URL(argUrl).openConnection();
+            scanner = new Scanner(connection.getInputStream());
             scanner.useDelimiter("\\Z");
             content = scanner.next();
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (scanner != null) {
+            scanner.close();
         }
         return content;
     }
