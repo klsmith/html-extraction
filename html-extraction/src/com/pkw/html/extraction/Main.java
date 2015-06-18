@@ -1,4 +1,4 @@
-package com.html.extraction;
+package com.pkw.html.extraction;
 
 import java.net.URL;
 import java.net.URLConnection;
