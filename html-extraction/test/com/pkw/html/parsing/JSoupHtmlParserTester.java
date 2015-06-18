@@ -25,43 +25,43 @@ public class JSoupHtmlParserTester {
 
     @Test
     public void testGetFirstDiv() {
-        String actual = parser.getHTMLContentOfFirst("div");
-        String expected = "<h2>hello world</h2><div><p>I'm Example<br>Batman</p></div>";
+        final String actual = parser.getHTMLContentOfFirst("div");
+        final String expected = "<h2>hello world</h2><div><p>I'm Example<br>Batman</p></div>";
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetFirstH1Contents() {
-        String actual = parser.getHTMLContentOfFirst("h1");
-        String expected = "example";
+        final String actual = parser.getHTMLContentOfFirst("h1");
+        final String expected = "example";
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetFirstPContents() {
-        String actual = parser.getHTMLContentOfFirst("p");
-        String expected = "Welcome to example!";
+        final String actual = parser.getHTMLContentOfFirst("p");
+        final String expected = "Welcome to example!";
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetFirstBodyContents() {
-        String actual = parser.getHTMLContentOfFirst("body");
-        String expected = "<h1>example</h1><p>Welcome to example!</p><div id=\"firstdiv\"><h2>hello world</h2><div><p>I'm Example<br>Batman</p></div></div>";
+        final String actual = parser.getHTMLContentOfFirst("body");
+        final String expected = "<h1>example</h1><p>Welcome to example!</p><div id=\"firstdiv\"><h2>hello world</h2><div><p>I'm Example<br>Batman</p></div></div>";
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetNonExistantTag() {
-        String actual = parser.getHTMLContentOfFirst("blah");
-        String expected = "";
+        final String actual = parser.getHTMLContentOfFirst("blah");
+        final String expected = "";
         assertEquals(expected, actual);
     }
 
     @Test
     public void testGetSecondDivContents() {
-        String actual = parser.getHTMLContentOfNthOccurance("div", 2);
-        String expected = "<p>I'm Example<br>Batman</p>";
+        final String actual = parser.getHTMLContentOfNthOccurance("div", 2);
+        final String expected = "<p>I'm Example<br>Batman</p>";
         assertEquals(expected, actual);
     }
 }
