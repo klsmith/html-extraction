@@ -25,9 +25,7 @@ public final class TestApplication {
     }
 
     private static String getEbayHTML(String searchFor, String priceCeiling) {
-        return getHTML(EBAY_URL//
-                .replace(SEARCH_FOR, searchFor)//
-                .replace(PRICE_CEILING, priceCeiling));
+        return getHTML(EBAY_URL.replace(SEARCH_FOR, searchFor).replace(PRICE_CEILING, priceCeiling));
     }
 
     public static String getHTML(String argUrl) {
