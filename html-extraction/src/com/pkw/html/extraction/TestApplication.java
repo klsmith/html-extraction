@@ -30,16 +30,20 @@ public final class TestApplication {
 
     public static String getHTML(String argUrl) {
         String content = null;
-        URLConnection connection = null;
+        Scanner scanner = null;
         try {
-            connection = new URL(argUrl).openConnection();
-            @SuppressWarnings("resource")
-            Scanner scanner = new Scanner(connection.getInputStream());
+            URLConnection connection = new URL(argUrl).openConnection();
+            scanner = new Scanner(connection.getInputStream());
             scanner.useDelimiter("\\Z");
             content = scanner.next();
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (scanner != null) {
+                scanner.close();
+            }
         }
         return content;
     }
