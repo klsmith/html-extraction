@@ -1,4 +1,4 @@
-package com.html.extraction;
+package com.pkw.html.parsing;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

@@ -1,4 +1,4 @@
-package com.html.extraction;
+package com.pkw.html.parsing;
 
 public interface HtmlParser {
 

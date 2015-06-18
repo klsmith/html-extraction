@@ -1,4 +1,4 @@
-package com.pkw.html.extraction;
+package com.pkw.html.parsing;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
 
-import com.html.extraction.JSoupHtmlParser;
+import com.pkw.html.parsing.JSoupHtmlParser;
 
 public class JSoupHtmlParserTester {
 
