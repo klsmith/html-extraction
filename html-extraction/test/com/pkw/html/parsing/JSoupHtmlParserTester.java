@@ -2,15 +2,8 @@ package com.pkw.html.parsing;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.xml.sax.SAXException;
-
-import com.pkw.html.parsing.JSoupHtmlParser;
 
 public class JSoupHtmlParserTester {
 
@@ -19,7 +12,7 @@ public class JSoupHtmlParserTester {
     private JSoupHtmlParser parser;
 
     @Before
-    public void setup() throws ParserConfigurationException, SAXException, IOException {
+    public void setup() {
         parser = JSoupHtmlParser.createFor(HTML);
     }
 
