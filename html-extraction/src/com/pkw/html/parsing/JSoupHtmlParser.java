@@ -10,4 +10,22 @@ public class JSoupHtmlParser extends AbstractJSoupHtmlParser {
 		super(html);
 	}
 
+	public static class Builder implements HtmlParser.Builder {
+		private String html;
+
+		public static Builder startBuild() {
+			return new Builder();
+		}
+
+		public Builder setHtml(String html) {
+			this.html = html;
+			return this;
+		}
+
+		@Override
+		public JSoupHtmlParser build() {
+			return JSoupHtmlParser.createFor(html);
+		}
+
+	}
 }

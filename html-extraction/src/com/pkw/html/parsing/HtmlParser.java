@@ -6,4 +6,9 @@ public interface HtmlParser {
 
 	public String getHTMLContentOfNthOccurance(String tag, int nthOccurance);
 
+	public static interface Builder {
+
+		public HtmlParser build();
+
+	}
 }
